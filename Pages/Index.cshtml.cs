@@ -35,8 +35,7 @@ namespace WebAppKeyVault.Pages
                 AzureServiceTokenProvider();
                 KeyVaultClient keyVaultClient = new KeyVaultClient(new
                 KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                var secret = await
-                keyVaultClient.GetSecretAsync("https://dellaihoussem020.vault.azure.net/secrets/AppSecret")
+                var secret = await keyVaultClient.GetSecretAsync("https://dellaihoussem020.vault.azure.net/secrets/AppSecret")
                 .ConfigureAwait(false);
 
                 Message = secret.Value;
